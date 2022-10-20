@@ -1,0 +1,9 @@
+{
+    "execMap":{
+      "js": "node -r sucrase/register"
+    },
+    "ignore":[
+      "node_modules",
+      "server.test.js"
+    ]
+}
