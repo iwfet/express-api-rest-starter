@@ -8,3 +8,4 @@ ormconfig.json
 tmp/*
 npm-debug.log*
 yarn-error.log*
+logs.log

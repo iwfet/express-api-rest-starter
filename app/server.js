@@ -1,4 +1,8 @@
 import app from "./app"
+import {logger} from "./log/index"
+// import {sendMailErroInesperado}from "./service/email"
+
+
 
 
 var port = process.env.PORT || 5000
@@ -12,7 +16,10 @@ function grafulshutdown(event){
         console.log('Closing http server...');
         server.close(()=>{
             console.log('http server close');
-                process.exit(code)
+            console.log('Closing DB connection...');
+            app.closeDb()
+            console.log('Sequelize connection close')
+            process.exit(code)
         })
     }
 }
@@ -33,12 +40,18 @@ process.on('exit',(code)=>{
 process.on('uncaughtException',(error,origin)=>{
     const erro = `\n${origin} signal received. \n${error}`
     console.error(erro)
+    logger.error(erro)
+
 })
 
 process.on('unhandledRejection',(error,origin)=>{
     const erro =`\n${origin} signal received. \n${error}`
     console.error(erro)
+    logger.error(erro)
+
 })
+
+
 
 
 

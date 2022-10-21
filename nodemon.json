@@ -4,6 +4,7 @@
     },
     "ignore":[
       "node_modules",
-      "server.test.js"
+      "server.test.js",
+      "logs.log"
     ]
 }
