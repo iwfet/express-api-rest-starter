@@ -12,6 +12,13 @@ class Database {
         adquirir: 30000,
         evict: 2000,
       },
+      // utilizar este parametro apenas para conectar no heroku db
+      dialectOptions: {
+        ssl: {
+          require: true, // This will help you. But you will see nwe error
+          rejectUnauthorized: false // This line will fix new error
+        }
+      },
       logging: false,  
     });  
   }

@@ -12,7 +12,7 @@ class usuarioController{
     async createUsuario(req, res){
         const {usuario,password}=req?.body
         if((!usuario) && (!password)){
-            console.log(await this);
+            console.log(this.teste);
             res.statusCode =404
         
             return res.json(new errorException("Faltando usuario / password em body"))
@@ -25,5 +25,4 @@ class usuarioController{
     }
 
 }
-
 export const UsuarioController = new usuarioController()
