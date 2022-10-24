@@ -1,6 +1,9 @@
 import { Router } from "express";
 import {handle404Error,handleDevErrors  } from "./middlewares/errorHandlers"
+import { routesPots } from "./routes/posts";
 import {routesUsuario} from "./routes/usuario"
+import { handleExceptions} from "./middlewares/errorHandlers"
+import { auth } from "./middlewares/auth";
 
 
 export const routes = new Router();
@@ -17,8 +20,7 @@ routes.use(function (req, res, next) {
 
 routes.use("/usuario",routesUsuario)
 
-// routes.post("/usuario")
-
+routes.use("/posts",handleExceptions(auth),routesPots)
 
 
 
