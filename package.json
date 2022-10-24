@@ -19,6 +19,7 @@
   "homepage": "https://github.com/iwfet/express-api-rest-starter#readme",
   "dependencies": {
     "@sequelize/core": "^7.0.0-alpha.10",
+    "bcryptjs": "^2.4.3",
     "body-parser": "^1.20.1",
     "compression": "^1.7.4",
     "cookie-parser": "^1.4.6",

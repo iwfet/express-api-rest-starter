@@ -7,7 +7,7 @@ class Database {
     this.sequelize = new Sequelize(url, {
       pool: {
         max: 10,
-        min: 0,
+        min: 1,
         idle: 10000,
         adquirir: 30000,
         evict: 2000,

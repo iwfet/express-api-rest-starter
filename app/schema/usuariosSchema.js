@@ -5,7 +5,7 @@ import {database} from"../database/conection"
 export class Usuarios extends Model{}
 
 
-Usuario.init({
+Usuarios.init({
     id: {
         type: DataTypes.INTEGER,
         primaryKey: true,
@@ -16,9 +16,13 @@ Usuario.init({
         allowNull: false,
         unique: true
     },
+    password:{
+        type: DataTypes.STRING(255),
+        allowNull: false
+    },
     token:{
         type: DataTypes.STRING(60),
-        allowNull: false
+        allowNull: true
     }
 
 },{

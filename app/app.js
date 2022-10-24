@@ -34,7 +34,7 @@ class App {
 
     async modeloConstructor(){
         try{
-            await database.getDb().sync().then((d)=>{console.log('Database table model os created successfully')})
+            await database.getDb().sync({alter:true}).then((d)=>{console.log('Database table model os created successfully')})
         }catch (error) {
             console.error(error)
         }

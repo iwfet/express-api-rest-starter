@@ -3,7 +3,7 @@ import "dotenv/config"
 
 export const handleExceptions = fn=> 
     (req,res, next)=> {
-        fn(req, res)
+        fn(req, res,next)
         .catch((error) => { next(error) })
 }
 

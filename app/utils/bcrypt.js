@@ -1,5 +1,5 @@
 import bcrypt from "bcryptjs";
-import {bycryptSalt} from "../infra/bcryptjs"
+import {bycryptSalt} from "../infra/bcrypt"
 
 
 /* we are encrypting the password as hash to  save in database */

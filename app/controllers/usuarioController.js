@@ -3,22 +3,18 @@ import {statusCode} from"../enum/statusCode"
 import {errorException} from "../utils/execption"
 
 class usuarioController{
-    #statusCode
     #usuarioService
-    constructor(statusCode,usuarioService){
-        this.#statusCode = statusCode
+    constructor(usuarioService){
         this.#usuarioService=usuarioService
-        
     }
  
     async createUsuario(req,res,next){
         const {usuario,password}=req?.body
         if((!usuario) && (!password)){
-            
-            res.statusCode =this.#statusCode.ClientErrorBadRequest
-            return res.json(new errorException("Faltando usuario / password "))
+            return res.status(statusCode.ClientErrorBadRequest)
+            .json(new errorException("Faltando usuario / password "))
         }
-        this.#usuarioService.createUsuario(req,res,next,usuario,password)  
+        return  this.#usuarioService.createUsuario(req,res,next,usuario,password)  
     }
 
   
@@ -26,4 +22,4 @@ class usuarioController{
 
 
 
-export const UsuarioController = new usuarioController(statusCode,UsuarioService)
+export const UsuarioController = new usuarioController(UsuarioService)
