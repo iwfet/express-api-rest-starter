@@ -8,7 +8,7 @@ export const routesUsuario = new Router();
 
 
 
-routesUsuario.post("/crete-usuario",handleExceptions(UsuarioController.createUsuario))
+routesUsuario.post("/crete-usuario",handleExceptions(UsuarioController.createUsuario.bind(UsuarioController)))
 
 
 

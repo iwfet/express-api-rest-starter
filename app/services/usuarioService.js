@@ -1,8 +1,15 @@
+import {statusCode} from"../enum/statusCode"
 
+class usuarioService{
+    #statusCode
+    constructor(statusCode){
+        this.#statusCode = statusCode
+    }
 
-export const UsuarioService = new class usuarioService{
-    async createUsuario(req, res, next) {
-
+    async createUsuario(req,res,next,usuario,password){
+      
+        return res.json({status: true})
         
     }
 }
+export const UsuarioService = new usuarioService(statusCode) 

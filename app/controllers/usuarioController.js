@@ -3,26 +3,27 @@ import {statusCode} from"../enum/statusCode"
 import {errorException} from "../utils/execption"
 
 class usuarioController{
- 
-    constructor(){
-      
-        this.teste ="111111111111111" 
+    #statusCode
+    #usuarioService
+    constructor(statusCode,usuarioService){
+        this.#statusCode = statusCode
+        this.#usuarioService=usuarioService
+        
     }
  
-    async createUsuario(req, res){
+    async createUsuario(req,res,next){
         const {usuario,password}=req?.body
         if((!usuario) && (!password)){
-            console.log(this.teste);
-            res.statusCode =404
-        
-            return res.json(new errorException("Faltando usuario / password em body"))
+            
+            res.statusCode =this.#statusCode.ClientErrorBadRequest
+            return res.json(new errorException("Faltando usuario / password "))
         }
-       
-        // UsuarioService.createUsuario(req, res, next,)
-
-        
-
+        this.#usuarioService.createUsuario(req,res,next,usuario,password)  
     }
 
+  
 }
-export const UsuarioController = new usuarioController()
+
+
+
+export const UsuarioController = new usuarioController(statusCode,UsuarioService)
