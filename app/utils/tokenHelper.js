@@ -14,8 +14,8 @@ export const createToken = async (data) => {
 
 export const verifyToken = async (token) =>{
     return new Promise((resolve,reject)=>{
-    jwt.verify(token, jsonWebTokenKey,(err,decoded)=>{
-        (err ? reject(err) : resolve(decoded));
+        jwt.verify(token, jsonWebTokenKey,(err,decoded)=>{
+            (err ? reject(err) : resolve(decoded));
     })
     })
 }

@@ -14,7 +14,16 @@ class usuarioController{
             return res.status(statusCode.ClientErrorBadRequest)
             .json(new errorException("Faltando usuario / password "))
         }
-        return  this.#usuarioService.createUsuario(req,res,next,usuario,password)  
+        return  this.#usuarioService.createUsuario(req,res,next)  
+    }
+
+    async login(req,res,next){
+        const {usuario,password}=req?.body
+        if((!usuario) && (!password)){
+            return res.status(statusCode.ClientErrorBadRequest)
+            .json(new errorException("Faltando usuario / password "))
+        }
+        return this.#usuarioService.login(req,res,next)
     }
 
   

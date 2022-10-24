@@ -1,5 +1,4 @@
 import "dotenv/config"
 
-export default{
-    jsonWebTokenKey:process.env.SECRETE
-}
+export const jsonWebTokenKey = String(process.env.SECRETE)
+

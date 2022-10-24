@@ -12,6 +12,9 @@ class usuarioRepository{
         const usuario = await this.#usuarioSchema.findOne({where:{user}})
         return !!usuario
     }
+    async buscaUsuario(user){
+        return await this.#usuarioSchema.findOne({where:{user}})
+    }
     async createUsuario(user,password){
         return await this.#usuarioSchema.create({user,password})
     }
